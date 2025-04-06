@@ -1,3 +1,4 @@
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -6,7 +7,7 @@ spec:
   selector:
     matchLabels:
       app: myapp
-  replicas: 
+  replicas: 2
   template:
     metadata:
       labels:
@@ -15,4 +16,5 @@ spec:
       containers:
       - name: myapp
         image: akyldocker25/soniweb:latest
-        
+        ports:
+        - containerPort: 8080  # Expose port 8080
