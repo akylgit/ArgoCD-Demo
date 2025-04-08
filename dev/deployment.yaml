@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: myapp
+  name: youtube
 spec:
   replicas: 2  # Number of pods to deploy
   selector:
     matchLabels:
-      app: myapp
+      app: youtube
   template:
     metadata:
       labels:
-        app: myapp
+        app: youtube
     spec:
       containers:
-      - name: myapp
-        image: akyldocker25/myapp:latest
+      - name: youtube
+        image: akyldocker25/youtube-clone:latest
         ports:
         - containerPort: 80  # Change container port to 80
