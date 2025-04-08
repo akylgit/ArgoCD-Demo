@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: myapp-deployment
+  name: mario 
 spec:
   replicas: 2  # Number of pods to deploy
   selector:
     matchLabels:
-      app: myapp
+      app: mario 
   template:
     metadata:
       labels:
-        app: myapp
+        app: mario 
     spec:
       containers:
-      - name: myapp
-        image: akyldocker25/soniweb:latest
+      - name: mario 
+        image: akyldocker25/mario:latest
         ports:
         - containerPort: 8080
