@@ -2,6 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: myapp-argo-application
+  namespace: argocd  # This is the namespace where ArgoCD is installed
 spec:
   project: default
 
@@ -9,13 +10,14 @@ spec:
     repoURL: https://github.com/akylgit/ArgoCD-Demo.git
     targetRevision: HEAD
     path: dev
+
   destination: 
     server: https://kubernetes.default.svc
-    # No namespace here, ArgoCD will use default namespace for deployment
+    namespace: default  # <- Important: explicitly set to default
 
   syncPolicy:
     syncOptions:
-    - CreateNamespace=true  # Automatically create the namespace if it doesn't exist
+      - CreateNamespace=false  # No need to create 'default', it already exists
 
     automated:
       selfHeal: true
