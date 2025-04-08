@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: mario
 spec:
-  replicas: 5  # Number of pods to deploy
+  replicas: 1  # Number of pods to deploy
   selector:
     matchLabels:
       app: mario
