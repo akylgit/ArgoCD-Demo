@@ -1,19 +1,12 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: v1
+kind: Service
 metadata:
-  name: mario 
+  name: mario-service
 spec:
-  replicas: 2  # Number of pods to deploy
   selector:
-    matchLabels:
-      app: mario 
-  template:
-    metadata:
-      labels:
-        app: mario 
-    spec:
-      containers:
-      - name: mario 
-        image: akyldocker25/mario:latest
-        ports:
-        - containerPort: 8080
+    app: mario
+  ports:
+    - protocol: TCP
+      port: 80          # Expose port 80
+      targetPort: 80     # Forward to port 80 on the container
+  type: ClusterIP
