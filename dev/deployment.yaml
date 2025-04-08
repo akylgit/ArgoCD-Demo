@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mario
+  name: myapp
 spec:
   replicas: 1  # Number of pods to deploy
   selector:
     matchLabels:
-      app: mario
+      app: myapp
   template:
     metadata:
       labels:
-        app: mario
+        app: myapp
     spec:
       containers:
-      - name: mario
-        image: akyldocker25/mario:latest
+      - name: myapp
+        image: akdhruvin30/dhsoniweb
         ports:
         - containerPort: 80  # Change container port to 80

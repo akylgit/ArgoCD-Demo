@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: mario-argo-application
+  name: myapp-argo-application
   namespace: argocd  # This is the namespace where ArgoCD is installed
 spec:
   project: default
