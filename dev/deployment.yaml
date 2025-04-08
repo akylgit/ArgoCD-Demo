@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: myapp
-        image: akdhruvin30/dhsoniweb
+        image: akdhruvin30/dhsoniweb:latest
         ports:
         - containerPort: 80  # Change container port to 80
