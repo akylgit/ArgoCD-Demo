@@ -2,7 +2,6 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: myapp-argo-application
-  namespace: argocd
 spec:
   project: default
 
@@ -12,11 +11,11 @@ spec:
     path: dev
   destination: 
     server: https://kubernetes.default.svc
-    namespace: myapp
+    # No namespace here, ArgoCD will use default namespace for deployment
 
   syncPolicy:
     syncOptions:
-    - CreateNamespace=true
+    - CreateNamespace=true  # Automatically create the namespace if it doesn't exist
 
     automated:
       selfHeal: true

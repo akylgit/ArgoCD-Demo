@@ -1,20 +1,14 @@
 
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: v1
+kind: Service
 metadata:
-  name: myapp-deployment
+  name: myapp-service
 spec:
   selector:
-    matchLabels:
-      app: myapp
-  replicas: 4
-  template:
-    metadata:
-      labels:
-        app: myapp
-    spec:
-      containers:
-      - name: myapp
-        image: akyldocker25/soniweb:latest
-        ports:
-        - containerPort: 8080  # Expose port 8080
+    app: myapp  # Match the app label from the deployment
+  ports:
+    - protocol: TCP
+      port: 80          # Port exposed inside the cluster
+      targetPort: 8080   # Port in the container
+      nodePort: 30001    # Exposed port on all nodes in the cluster
+  type: NodePort
